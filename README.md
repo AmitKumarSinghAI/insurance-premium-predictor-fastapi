@@ -31,7 +31,7 @@ It uses a **pre-trained Scikit-Learn model (`model.pkl`)** to perform prediction
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/<your-username>/insurance-premium-predictor-fastapi.git
+git clone https://github.com/AmitKumarSinghAI/insurance-premium-predictor-fastapi/blob/main/app.py
 cd insurance-premium-predictor-fastapi
 ```
 
