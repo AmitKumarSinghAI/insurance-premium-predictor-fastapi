@@ -1,0 +1,16 @@
+# Ignore virtual environment
+myenv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore editor and system files
+.vscode/
+.DS_Store
+
+# Ignore environment or secret files
+.env
+
+# (Keep model.pkl and requirements.txt in Git)
+# So we do NOT ignore them
