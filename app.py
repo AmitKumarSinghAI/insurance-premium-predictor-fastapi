@@ -4,19 +4,6 @@ from typing import Annotated, Literal
 from fastapi.responses import JSONResponse
 import pandas as pd
 import pickle
-from pymongo import MongoClient
-
-try:
-    client = MongoClient('mongodb://localhost:27017/')
-    database = client['Insurance']
-    collection = database["users"]
-
-except Exception as e:
-    print(f'failed to connect to the database {e}')
-
-
-
-
 
 tier_1_cities = [
     "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune"
@@ -100,9 +87,5 @@ def premium_predict(data: UserInput):
     }])
 
     prediction = model.predict(input_df)[0]
-
-    record = data.model_dump()
-    record['predicted_category'] = prediction
-    collection.insert_one(record)
-
+    
     return JSONResponse(status_code=200, content={'predicted_category': prediction})
