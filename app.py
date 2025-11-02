@@ -5,6 +5,8 @@ from fastapi.responses import JSONResponse
 import pandas as pd
 import pickle
 from pymongo import MongoClient
+import uvicorn
+import os
 
 try:
     client = MongoClient('mongodb://localhost:27017/')
@@ -106,3 +108,8 @@ def premium_predict(data: UserInput):
     collection.insert_one(record)
 
     return JSONResponse(status_code=200, content={'predicted_category': prediction})
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("app:app", host="0.0.0.0", port=port)
