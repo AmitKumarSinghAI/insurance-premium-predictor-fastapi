@@ -102,11 +102,7 @@ def premium_predict(data: UserInput):
     }])
 
     prediction = model.predict(input_df)[0]
-
-    record = data.model_dump()
-    record['predicted_category'] = prediction
-    collection.insert_one(record)
-
+    
     return JSONResponse(status_code=200, content={'predicted_category': prediction})
 
 
