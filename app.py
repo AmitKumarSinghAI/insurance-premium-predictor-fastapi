@@ -4,21 +4,8 @@ from typing import Annotated, Literal
 from fastapi.responses import JSONResponse
 import pandas as pd
 import pickle
-from pymongo import MongoClient
 import uvicorn
 import os
-
-try:
-    client = MongoClient('mongodb://localhost:27017/')
-    database = client['Insurance']
-    collection = database["users"]
-
-except Exception as e:
-    print(f'failed to connect to the database {e}')
-
-
-
-
 
 tier_1_cities = [
     "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune"
